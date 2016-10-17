@@ -1,0 +1,18 @@
+{
+  "name": "inheritance test",
+  "author":"kendrick caranicas",
+  "version": "1.0.0",
+  "description": "polymer 2.0 inheritance test",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "web-component"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#2.0-preview"
+  }
+}

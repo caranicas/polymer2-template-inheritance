@@ -1,0 +1,89 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="test-ele-styles">
+  <template>
+    <style>
+    :host {
+        display: block;
+        box-sizing: border-box;
+    }
+    </style>
+  </template>
+</dom-module>
+
+
+<dom-module id="test-ele">
+
+  <template>
+
+    <style include="test-ele-styles"></style>
+
+    <h1>Hello [[prop1]]<h1>
+
+  </template>
+
+</dom-module>
+
+
+<dom-module id="test-ele-foo">
+
+  <template>
+
+    <style include="test-ele-styles"></style>
+
+    <h1>Goodbye [[prop1]]<h1>
+
+  </template>
+
+</dom-module>
+
+
+<script>
+
+class TestEle extends Polymer.Element {
+
+  static get is() { return 'test-ele'; }
+
+  static get config() {
+    return {
+      properties: {
+        prop1: {
+          type:String,
+          value :'TEST'
+        }
+      },
+      observers: []
+    }
+  }
+
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
+};
+
+customElements.define(TestEle.is, TestEle);
+
+class TestEleFoo extends TestEle {
+  static get is() { return 'test-ele-foo'; }
+};
+customElements.define(TestEleFoo.is, TestEleFoo);
+
+class TestEleBar extends TestEle {
+  static get is() { return 'test-ele-bar'; }
+};
+customElements.define(TestEleBar.is, TestEleBar);
+
+
+// This will error our
+/*
+class TestEleBaz extends TestEle {
+};
+customElements.define(TestEleBaz.is, TestEleBaz);
+*/
+
+</script>
